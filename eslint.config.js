@@ -25,5 +25,16 @@ export default [
       'react/void-dom-elements-no-children': 'error',
     },
   },
-  { ignores: ['.nitro', '.output', '.tanstack', 'dist', 'node_modules'] },
+  {
+    ignores: [
+      '.ai',
+      '.nitro',
+      '.output',
+      '.tanstack',
+      'dist',
+      'node_modules',
+      'eslint.config.js',
+      'prettier.config.js',
+    ],
+  },
 ];

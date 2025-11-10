@@ -1,297 +1,202 @@
-Welcome to your new TanStack app!
+# Mantine Base Template
 
-# Getting Started
+A modern, production-ready React template with Mantine UI, TanStack Start, and TypeScript. Perfect for building full-stack web applications with server-side rendering, beautiful UI components, and type-safe routing.
 
-To run this application:
+## ✨ Features
+
+- **🎨 Mantine v8** - A full-featured React components library with 100+ customizable components
+- **🚀 TanStack Start** - Full-stack React framework with SSR and file-based routing
+- **📦 TanStack Router** - Type-safe routing with automatic code splitting
+- **⚡ Vite** - Lightning fast build tool with HMR
+- **🔷 TypeScript** - Full type safety and IntelliSense support
+- **🎭 Vitest** - Fast unit testing with React Testing Library
+- **💅 PostCSS** - Advanced CSS processing with Mantine preset
+- **📝 ESLint & Prettier** - Code quality and formatting
+- **🔄 GitHub Actions** - CI/CD pipeline ready
+- **🎯 Path Aliases** - Clean imports with `~` prefix
+- **🌐 SSR Ready** - Server-side rendering with Nitro
+
+## 🚀 Quick Start
+
+### Use this template
+
+Click the "Use this template" button above or use the GitHub CLI:
 
 ```bash
-pnpm install
-pnpm start
+gh repo create my-app --template singee-templates/mantine-base
 ```
 
-# Building For Production
+### Local Development
 
-To build this application for production:
+1. **Clone and install dependencies:**
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+pnpm install
+```
+
+2. **Start development server:**
+
+```bash
+pnpm dev
+```
+
+Visit [http://localhost:3000](http://localhost:3000) to see your app.
+
+## 📁 Project Structure
+
+```
+.
+├── src/
+│   ├── components/         # Shared React components
+│   │   ├── demo/           # Example components (safe to delete)
+│   │   └── system/         # System components (404, etc.)
+│   ├── routes/             # File-based routing
+│   │   ├── __root.tsx      # Root layout
+│   │   ├── index.tsx       # Home page (show demo components currently)
+│   │   └── 404.tsx         # 404 page
+│   ├── ui/                 # Design system and themes
+│   ├── router.tsx          # Router configuration
+│   └── styles.css          # Global styles
+├── public/                 # Static assets
+├── .ai/                    # AI documentation for development
+├── .github/                # GitHub templates and workflows
+└── CLAUDE.md              # AI assistant guidelines
+```
+
+## 📦 Available Scripts
+
+| Script              | Description                           |
+| ------------------- | ------------------------------------- |
+| `pnpm dev`          | Start development server on port 3000 |
+| `pnpm build`        | Build for production                  |
+| `pnpm serve`        | Preview production build              |
+| `pnpm test`         | Run tests                             |
+| `pnpm test --watch` | Run tests in watch mode               |
+| `pnpm lint`         | Run ESLint                            |
+| `pnpm format`       | Format code with Prettier             |
+| `pnpm check:types`  | Type check with TypeScript            |
+
+## 🛠️ Development
+
+### Adding a New Route
+
+Create a new file in `src/routes/`:
+
+```tsx
+// src/routes/about.tsx
+import { createFileRoute } from '@tanstack/react-router';
+
+export const Route = createFileRoute('/about')({
+  component: AboutPage,
+});
+
+function AboutPage() {
+  return (
+    <Container>
+      <Title>About Us</Title>
+    </Container>
+  );
+}
+```
+
+### Using Mantine Components
+
+```tsx
+import { Button, Card, Text } from '@mantine/core';
+
+function MyComponent() {
+  return (
+    <Card>
+      <Text>Hello from Mantine!</Text>
+      <Button variant="filled">Click me</Button>
+    </Card>
+  );
+}
+```
+
+### Custom Components
+
+Place custom components in `src/components/`:
+
+```tsx
+// src/components/MyComponent.tsx
+export function MyComponent() {
+  return <div>My Custom Component</div>;
+}
+
+// Import with path alias
+import { MyComponent } from '~components/MyComponent';
+```
+
+## 🧪 Testing
+
+Write tests next to your components:
+
+```tsx
+// src/components/Button.test.tsx
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button';
+
+test('renders button', () => {
+  render(<Button>Click me</Button>);
+  expect(screen.getByText('Click me')).toBeInTheDocument();
+});
+```
+
+Run tests:
+
+```bash
+pnpm test          # Run once
+pnpm test --watch  # Watch mode
+```
+
+## 🚀 Deployment
+
+### Build for Production
 
 ```bash
 pnpm build
 ```
 
-## Testing
+### Deploy
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+Please see the official [Hosting](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) documentation of tanstack-start.
 
-```bash
-pnpm test
-```
+## 🤖 AI Development
 
-## Styling
+This template is optimized for AI-assisted development:
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+- **AGENTS.md** (and symlinked **CLAUDE.md**) - Guidelines for AI assistants
+- **.ai/** - Comprehensive documentation for frameworks (for AI)
+- **Type Safety** - Full TypeScript support for better AI suggestions
+- **Clear Structure** - Well-organized code for easy understanding
 
-## Linting & Formatting
+## 📚 Documentation
 
-This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
+- [Mantine Documentation](https://mantine.dev/)
+- [TanStack Start Documentation](https://tanstack.com/start/latest)
+- [TanStack Router Documentation](https://tanstack.com/router/latest)
+- [Vite Documentation](https://vitejs.dev/)
+- [Vitest Documentation](https://vitest.dev/)
 
-```bash
-pnpm lint
-pnpm format
-pnpm check
-```
+## 📄 License
 
-## Routing
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This project uses [TanStack Router](https://tanstack.com/router). The initial setup is a file based router. Which means that the routes are managed as files in `src/routes`.
+## 🙏 Acknowledgments
 
-### Adding A Route
+- [Mantine](https://mantine.dev/) for the amazing component library
+- [TanStack](https://tanstack.com/) for the powerful routing and state management tools
+- [Vite](https://vitejs.dev/) for the blazing fast build tool
 
-To add a new route to your application just add another a new file in the `./src/routes` directory.
+## 💬 Support
 
-TanStack will automatically generate the content of the route file for you.
+- Create an [Issue](https://github.com/singee-templates/mantine-base/issues) for bug reports
+- Start a [Discussion](https://github.com/singee-templates/mantine-base/discussions) for questions
+- Check [CLAUDE.md](./CLAUDE.md) for AI development guidelines
 
-Now that you have two routes you can use a `Link` component to navigate between them.
+---
 
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from '@tanstack/react-router';
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you use the `<Outlet />` component.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { Outlet, createRootRoute } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
-
-import { Link } from '@tanstack/react-router';
-
-export const Route = createRootRoute({
-  component: () => (
-    <>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </nav>
-      </header>
-      <Outlet />
-      <TanStackRouterDevtools />
-    </>
-  ),
-});
-```
-
-The `<TanStackRouterDevtools />` component is not required so you can remove it if you don't want it in your layout.
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-const peopleRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/people',
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people');
-    return response.json() as Promise<{
-      results: {
-        name: string;
-      }[];
-    }>;
-  },
-  component: () => {
-    const data = peopleRoute.useLoaderData();
-    return (
-      <ul>
-        {data.results.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    );
-  },
-});
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-### React-Query
-
-React-Query is an excellent addition or alternative to route loading and integrating it into you application is a breeze.
-
-First add your dependencies:
-
-```bash
-pnpm add @tanstack/react-query @tanstack/react-query-devtools
-```
-
-Next we'll need to create a query client and provider. We recommend putting those in `main.tsx`.
-
-```tsx
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-// ...
-
-const queryClient = new QueryClient();
-
-// ...
-
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement);
-
-  root.render(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>,
-  );
-}
-```
-
-You can also add TanStack Query Devtools to the root route (optional).
-
-```tsx
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-
-const rootRoute = createRootRoute({
-  component: () => (
-    <>
-      <Outlet />
-      <ReactQueryDevtools buttonPosition="top-right" />
-      <TanStackRouterDevtools />
-    </>
-  ),
-});
-```
-
-Now you can use `useQuery` to fetch your data.
-
-```tsx
-import { useQuery } from '@tanstack/react-query';
-
-import './App.css';
-
-function App() {
-  const { data } = useQuery({
-    queryKey: ['people'],
-    queryFn: () =>
-      fetch('https://swapi.dev/api/people')
-        .then((res) => res.json())
-        .then((data) => data.results as { name: string }[]),
-    initialData: [],
-  });
-
-  return (
-    <div>
-      <ul>
-        {data.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default App;
-```
-
-You can find out everything you need to know on how to use React-Query in the [React-Query documentation](https://tanstack.com/query/latest/docs/framework/react/overview).
-
-## State Management
-
-Another common requirement for React applications is state management. There are many options for state management in React. TanStack Store provides a great starting point for your project.
-
-First you need to add TanStack Store as a dependency:
-
-```bash
-pnpm add @tanstack/store
-```
-
-Now let's create a simple counter in the `src/App.tsx` file as a demonstration.
-
-```tsx
-import { useStore } from '@tanstack/react-store';
-import { Store } from '@tanstack/store';
-import './App.css';
-
-const countStore = new Store(0);
-
-function App() {
-  const count = useStore(countStore);
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>
-        Increment - {count}
-      </button>
-    </div>
-  );
-}
-
-export default App;
-```
-
-One of the many nice features of TanStack Store is the ability to derive state from other state. That derived state will update when the base state updates.
-
-Let's check this out by doubling the count using derived state.
-
-```tsx
-import { useStore } from '@tanstack/react-store';
-import { Store, Derived } from '@tanstack/store';
-import './App.css';
-
-const countStore = new Store(0);
-
-const doubledStore = new Derived({
-  fn: () => countStore.state * 2,
-  deps: [countStore],
-});
-doubledStore.mount();
-
-function App() {
-  const count = useStore(countStore);
-  const doubledCount = useStore(doubledStore);
-
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>
-        Increment - {count}
-      </button>
-      <div>Doubled - {doubledCount}</div>
-    </div>
-  );
-}
-
-export default App;
-```
-
-We use the `Derived` class to create a new store that is derived from another store. The `Derived` class has a `mount` method that will start the derived store updating.
-
-Once we've created the derived store we can use it in the `App` component just like we would any other store using the `useStore` hook.
-
-You can find out everything you need to know on how to use TanStack Store in the [TanStack Store documentation](https://tanstack.com/store/latest).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+Built with ❤️ using Mantine and TanStack Start
