@@ -11,6 +11,7 @@ export default function Header() {
     <>
       <header className={styles.header}>
         <button
+          type="button"
           onClick={() => setIsOpen(true)}
           className={styles.menuButton}
           aria-label="Open menu"
@@ -34,6 +35,7 @@ export default function Header() {
         <div className={styles.sidebarHeader}>
           <h2 className={styles.sidebarTitle}>Navigation</h2>
           <button
+            type="button"
             onClick={() => setIsOpen(false)}
             className={styles.closeButton}
             aria-label="Close menu"

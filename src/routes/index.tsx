@@ -54,7 +54,7 @@ function App() {
   return (
     <div className={styles.container}>
       <section className={styles.hero}>
-        <div className={styles.heroBackground}></div>
+        <div className={styles.heroBackground} />
         <div className={styles.heroContent}>
           <div className={styles.logoSection}>
             <img
