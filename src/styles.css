@@ -7,3 +7,5 @@
 @import '@mantine/carousel/styles.css';
 @import '@mantine/dropzone/styles.css';
 @import '@mantine/nprogress/styles.css';
+
+@import './ui/shadcn-blue-theme/style.css';

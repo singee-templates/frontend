@@ -5,10 +5,9 @@ import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { NavigationProgress } from '@mantine/nprogress';
 import { ModalsProvider } from '@mantine/modals';
-import Header from '../components/Header';
 import appCss from '~styles.css?url';
-import { theme } from '~ui/theme';
-
+import { shadcnTheme as theme } from '~ui/shadcn-blue-theme/theme';
+import { shadcnCssVariableResolver as cssVariablesResolver } from '~ui/shadcn-blue-theme/cssVariableResolver';
 
 export const Route = createRootRoute({
   head: () => ({
@@ -42,11 +41,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <MantineProvider theme={theme}>
-          <ModalsProvider>
-            <Header />
-            {children}
-          </ModalsProvider>
+        <MantineProvider
+          theme={theme}
+          cssVariablesResolver={cssVariablesResolver}
+        >
+          <ModalsProvider>{children}</ModalsProvider>
 
           <Notifications position="top-center" />
           <NavigationProgress />
