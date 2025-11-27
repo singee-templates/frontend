@@ -82,6 +82,19 @@ And you can use the context7 mcp tool with the library id `/websites/tanstack_ro
 
 Use [@mantine/hooks](https://mantine.dev/hooks/getting-started/) for common React hooks. Prefer these over writing custom hooks when available.
 
+**Note:** Do NOT use `useClipboard` from @mantine/hooks. Use `copy-to-clipboard` instead (see below).
+
+### copy-to-clipboard
+
+Use [copy-to-clipboard](https://www.npmjs.com/package/copy-to-clipboard) for clipboard operations:
+
+```tsx
+import copy from 'copy-to-clipboard';
+
+copy('Text to copy');
+copy(text, { format: 'text/plain' });
+```
+
 ### @mantine/modals
 
 Use [@mantine/modals](https://mantine.dev/x/modals/) for declarative modal management. The ModalsProvider is already configured in `__root.tsx`.
