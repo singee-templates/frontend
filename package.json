@@ -14,7 +14,6 @@
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix && eslint",
     "check:types": "tsc --noEmit",
-    "prepare": "lefthook install",
     "gen:aidocs": "bash scripts/generate-ai-docs.sh"
   },
   "dependencies": {
@@ -72,7 +71,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "eslint"
+      "eslint",
+      "lefthook"
     ]
   }
 }
