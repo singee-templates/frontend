@@ -13,8 +13,7 @@
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix && eslint",
-    "check:types": "tsc --noEmit",
-    "gen:aidocs": "bash scripts/generate-ai-docs.sh"
+    "check:types": "tsc --noEmit"
   },
   "dependencies": {
     "@mantine/carousel": "^8.3.10",
