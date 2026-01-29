@@ -6,6 +6,8 @@
     "prettier.config.js",
     "vite.config.ts",
     "vitest.config.ts",
+    "vitest.browser.config.ts",
+    "vitest.browser.setup.ts",
     "postcss.config.ts"
   ],
 
