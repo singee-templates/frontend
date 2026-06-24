@@ -2,6 +2,5 @@ ignoredBuiltDependencies:
   - lefthook
 onlyBuiltDependencies:
   - esbuild
-  - eslint
   - lefthook
   - playwright
